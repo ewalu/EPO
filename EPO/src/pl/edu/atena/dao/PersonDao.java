@@ -24,9 +24,9 @@ public class PersonDao {
 		em.refresh(ubezp);
 	}
 	
-	public Person dodajPolise(Long id, Policy polisa) {
+	/*public Person dodajPolise(Long id, Policy polisa) {
 		Person ubezp = find(id);
 		ubezp.setPolisa(polisa);
 		return ubezp;
-	}
+	}*/
 }

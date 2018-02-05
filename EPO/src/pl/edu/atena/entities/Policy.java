@@ -10,6 +10,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,16 +32,26 @@ public class Policy {
 	private Long id;
 	
 	private String policyNumber;
-	private String insured;
-	private String insurer;
-	private String object;
 	private BigDecimal premium;
+	
+	@OneToOne
+	private Person insured;
+	
+	@OneToOne
+	private Person insurer;
+
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date wr = Date.from(Instant.now());
 	
 	@Temporal(TemporalType.DATE)
 	private Date signDate = Date.from(Instant.now());
+	
+	@Temporal(TemporalType.DATE)
+	private Date vf;
+	
+	@Temporal(TemporalType.DATE)
+	private Date vt;
 	
 	@Enumerated(EnumType.STRING)
 	private PolicyState status = PolicyState.ZATWIERDZONA;
@@ -59,22 +72,6 @@ public class Policy {
 
 	public void setPolicyNumber(String policyNumber) {
 		this.policyNumber = policyNumber;
-	}
-
-	public String getInsured() {
-		return insured;
-	}
-
-	public void setInsured(String insured) {
-		this.insured = insured;
-	}
-
-	public String getInsurer() {
-		return insurer;
-	}
-
-	public void setInsurer(String insurer) {
-		this.insurer = insurer;
 	}
 
 	public BigDecimal getPremium() {
@@ -113,12 +110,20 @@ public class Policy {
 		this.id = id;
 	}
 
-	public String getObject() {
-		return object;
+	public Person getInsured() {
+		return insured;
 	}
 
-	public void setObject(String object) {
-		this.object = object;
+	public void setInsured(Person insured) {
+		this.insured = insured;
+	}
+
+	public Person getInsurer() {
+		return insurer;
+	}
+
+	public void setInsurer(Person insurer) {
+		this.insurer = insurer;
 	}
 	
 

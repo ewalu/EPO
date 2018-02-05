@@ -45,12 +45,12 @@ public class PersonService {
 				return ubezp;
 	}
 	
-	@POST
+	/*@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/update/{id_pol}/{id_ubezp}")
 	public Response update(@PathParam("id_pol") Long id_pol, @PathParam("id_ubezp") Long id_ub) {
 		Policy polisa = polisaDao.find(id_pol);
 		Person ubezp = ubezpDao.dodajPolise(id_ub, polisa);
 		return Response.status(200).entity(ubezp).build();
-	}
+	}*/
 }

@@ -41,11 +41,11 @@ public class PolicyService {
 	@Path("/create/{numerPolisy}/{ubezpieczajacy}/{skladka}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Policy create2(@PathParam("numerPolisy") String nrPolisy, 
-			@PathParam("ubezpieczajacy") String ubezpieczajacy, 
+			//@PathParam("ubezpieczajacy") String ubezpieczajacy, 
 			@PathParam("skladka") BigDecimal skladka) {
 				Policy polisa = new Policy();
 				polisa.setPolicyNumber(nrPolisy);
-				polisa.setInsurer(ubezpieczajacy);
+				//polisa.setInsurer(ubezpieczajacy);
 				polisa.setPremium(skladka);
 				polisaDao.create(polisa);
 				return polisa;
