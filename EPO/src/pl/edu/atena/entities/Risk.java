@@ -68,4 +68,52 @@ public class Risk {
 		this.polisa = polisa;
 	}
 
+	public BigDecimal getPremium() {
+		return premium;
+	}
+
+	public void setPremium(BigDecimal premium) {
+		this.premium = premium;
+	}
+
+	public Date getWr() {
+		return wr;
+	}
+
+	public void setWr(Date wr) {
+		this.wr = wr;
+	}
+
+	public Date getVf() {
+		return vf;
+	}
+
+	public void setVf(Date vf) {
+		this.vf = vf;
+	}
+
+	public Date getVt() {
+		return vt;
+	}
+
+	public void setVt(Date vt) {
+		this.vt = vt;
+	}
+
+	public Person getInsured() {
+		return insured;
+	}
+
+	public void setInsured(Person insured) {
+		this.insured = insured;
+	}
+
+	public Object getObject() {
+		return object;
+	}
+
+	public void setObject(Object object) {
+		this.object = object;
+	}
+
 }

@@ -125,6 +125,22 @@ public class Policy {
 	public void setInsurer(Person insurer) {
 		this.insurer = insurer;
 	}
+
+	public Date getVf() {
+		return vf;
+	}
+
+	public void setVf(Date vf) {
+		this.vf = vf;
+	}
+
+	public Date getVt() {
+		return vt;
+	}
+
+	public void setVt(Date vt) {
+		this.vt = vt;
+	}
 	
 
 }

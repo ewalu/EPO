@@ -25,11 +25,16 @@ public class Object {
 	private Long id;
 	private String name;
 	
+	private Date registerDate;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date wr = Date.from(Instant.now());
 	
 	@Enumerated(EnumType.STRING)
 	private ObjectType type;
+	
+	@OneToOne
+	private Adress adress;
 
 	public Long getId() {
 		return id;
@@ -45,6 +50,38 @@ public class Object {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
+	}
+
+	public Date getWr() {
+		return wr;
+	}
+
+	public void setWr(Date wr) {
+		this.wr = wr;
+	}
+
+	public ObjectType getType() {
+		return type;
+	}
+
+	public void setType(ObjectType type) {
+		this.type = type;
+	}
+
+	public Adress getAdress() {
+		return adress;
+	}
+
+	public void setAdress(Adress adress) {
+		this.adress = adress;
 	}
 
 }
