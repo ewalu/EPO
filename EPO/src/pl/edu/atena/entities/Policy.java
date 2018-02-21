@@ -3,6 +3,7 @@ package pl.edu.atena.entities;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -37,9 +39,11 @@ public class Policy {
 	@OneToOne
 	private Person insured;
 	
-	@OneToOne
-	private Person insurer;
-
+	@ManyToMany
+	private List<Profile> profiles;
+	
+	@OneToMany
+	private List<Risk> risks;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date wr = Date.from(Instant.now());
@@ -118,14 +122,6 @@ public class Policy {
 		this.insured = insured;
 	}
 
-	public Person getInsurer() {
-		return insurer;
-	}
-
-	public void setInsurer(Person insurer) {
-		this.insurer = insurer;
-	}
-
 	public Date getVf() {
 		return vf;
 	}
@@ -140,6 +136,14 @@ public class Policy {
 
 	public void setVt(Date vt) {
 		this.vt = vt;
+	}
+
+	public List<Risk> getRisks() {
+		return risks;
+	}
+
+	public void setRisks(List<Risk> risks) {
+		this.risks = risks;
 	}
 	
 

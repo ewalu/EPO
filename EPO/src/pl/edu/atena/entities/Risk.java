@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -35,11 +36,14 @@ public class Risk {
 	@Temporal(TemporalType.DATE)
 	private Date vt;
 	
-	@OneToOne
+	@ManyToOne
 	private Policy polisa;
 	
 	@OneToOne
 	private Person insured;
+	
+	@OneToOne
+	private Person insurer;
 	
 	@OneToOne
 	private Object object;

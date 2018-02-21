@@ -2,6 +2,7 @@ package pl.edu.atena.entities;
 
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -32,8 +33,8 @@ public class Adress {
 	@Enumerated(EnumType.STRING)
 	private AdressType type;
 	
-	@OneToOne
-	private Person person;
+	@ManyToMany
+	private List<Person> persons;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date wr = Date.from(Instant.now());
@@ -94,19 +95,19 @@ public class Adress {
 		this.type = type;
 	}
 
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}
-
 	public Date getWr() {
 		return wr;
 	}
 
 	public void setWr(Date wr) {
 		this.wr = wr;
+	}
+
+	public List<Person> getPersons() {
+		return persons;
+	}
+
+	public void setPersons(List<Person> persons) {
+		this.persons = persons;
 	}
 }

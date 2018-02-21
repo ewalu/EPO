@@ -2,6 +2,7 @@ package pl.edu.atena.entities;
 
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -31,6 +32,9 @@ public class Person {
 	private String regon;
 	
 	private Date birthDate;
+	
+	@ManyToMany
+	private List<Adress> adress;
 	
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
