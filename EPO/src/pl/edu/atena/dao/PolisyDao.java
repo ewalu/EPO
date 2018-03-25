@@ -22,7 +22,7 @@ public class PolisyDao {
 	
 	public Policy update(Long id, Person insurer) {
 		Policy polisaup = find(id);
-		polisaup.setInsurer(insurer);
+		polisaup.setInsured(insurer);
 		return polisaup;
 	}
 	

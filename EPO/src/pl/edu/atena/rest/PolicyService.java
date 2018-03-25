@@ -56,7 +56,7 @@ public class PolicyService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/update")
 	public Response update(Policy polisa) {
-		Policy pol = polisaDao.update(polisa.getId(), polisa.getInsurer());
+		Policy pol = polisaDao.update(polisa.getId(), polisa.getInsured());
 		return Response.status(200).entity(pol).build();
 	}
 	
