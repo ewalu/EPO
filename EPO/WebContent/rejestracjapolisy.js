@@ -33,8 +33,8 @@ app.controller('mojCtrl', function($scope, $http){
         $http(
             {
                 method: 'GET',
-                //params: scope.modelpolisypolisy,
-                url: 'http://localhost:8080/EJBSzkol/api/polisa/create/'+scope.modelpolisy.numerPolisy+'/'+scope.modelpolisy.ubezpieczajacy+'/'+scope.modelpolisy.skladka+'/'+scope.modelpolisy.statusPolisy,
+                //params: scope.modelpolisy,
+                url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/create/'+scope.modelpolisy.numerPolisy+'/'+scope.modelpolisy.ubezpieczajacy+'/'+scope.modelpolisy.skladka+'/'+scope.modelpolisy.statusPolisy,
                 //params: {"numerPolisy": model.numerPolisy, "ubezpieczajacy": model.ubezpieczajacy, "skladka": model.skladka},
                 //data: scope.modelpolisy,
                 headers: {'Content-Type': 'application/json '},
@@ -46,7 +46,7 @@ app.controller('mojCtrl', function($scope, $http){
            alert(`Poprawnie zapisano dane polisy: ${response.data.numerPolisy}`);
            console.log('ewa666'+response);
         }, (response) => {
-            alert('Błąd zapisu danychd dla: ' + scope.modelpolisy.numerPolisy);
+            alert('Błąd zapisu danych dla: ' + scope.modelpolisy.numerPolisy);
             console.log('ewa666'+response);
         }
     );

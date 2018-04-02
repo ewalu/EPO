@@ -18,6 +18,7 @@ import javax.ws.rs.core.Response;
 
 import pl.edu.atena.dao.PolisyDao;
 import pl.edu.atena.entities.Policy;
+import pl.edu.atena.entities.PolicyState;
 
 @Path("/polisa")
 public class PolicyService {
@@ -27,26 +28,19 @@ public class PolicyService {
 	
 	@EJB PolisyDao polisaDao;
 	
-	
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/create")
-	public Response create(Policy polisa) {
-		polisaDao.create(polisa);
-		return Response.status(200).entity(polisa).build();
-	}
-	//http://localhost:8080/EJBSzkol/api/polisa/create
+	//http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/create/ewa001/ewa/1/ZAWIESZONA
 	@GET
-	@Path("/create/{numerPolisy}/{ubezpieczajacy}/{skladka}")
+	@Path("/create/{numerPolisy}/{ubezpieczajacy}/{skladka}/{status}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Policy create2(@PathParam("numerPolisy") String nrPolisy, 
-			//@PathParam("ubezpieczajacy") String ubezpieczajacy, 
-			@PathParam("skladka") BigDecimal skladka) {
+			@PathParam("ubezpieczajacy") String ubezpieczajacy, 
+			@PathParam("skladka") BigDecimal skladka,
+			@PathParam("status") PolicyState status) {
 				Policy polisa = new Policy();
 				polisa.setPolicyNumber(nrPolisy);
-				//polisa.setInsurer(ubezpieczajacy);
+				//polisa.setInsured(ubezpieczajacy);
 				polisa.setPremium(skladka);
+				polisa.setStatus(status);
 				polisaDao.create(polisa);
 				return polisa;
 	}
