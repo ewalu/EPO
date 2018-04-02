@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <script src="rejestracjapolisy.js"></script>
+	<script src="wyszukiwaniepolis.js"></script>
+</head>
+
+<body ng-app="app">
+    <div ng-controller="mojCtrl" class="container is-widescreen">
+
+        <ng-include src="'menu.html'"></ng-include>
+
+        <br/>
+
+        <div class="columns">
+
+            <form class="column is-6 is-offset-3">
+                <h1 class="title">Podaj dane polisy</h1>
+                <div class="field is-small">
+                    <label class="label">Numer polisy</label>
+                    <div class="control">
+                        <input class="input" type="search" placeholder="Numer polisy" ng-model="modelpolisy.numerPolisy">
+                    </div>
+                </div>
+                <div class="field is-small">
+                    <label class="label">Status</label>
+                    <div class="select is-fullwidth">
+                        <select name="status" ng-model="modelpolisy.statusPolisy" ng-options="option as option for option in statusy">
+                        </select>
+                    </div>
+                </div>
+                <div class="field is-small">
+                        <label class="label">Ubezpieczenie</label>
+                        <div class="select is-fullwidth">
+                            <select name="ubezpieczenie" ng-model="modelpolisy.symbolubezpieczenia" ng-options="option as option for option in symbole">
+                            </select>
+                        </div>
+                    </div>
+            </form>
+
+        </div>
+
+        <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+                <button class="button is-link" ng-click="wyszukajPoNumerze()">Wyszukaj polisy
+                </button>
+            </div>
+        </div>
+
+        <br/>
+
+        <nav class="panel">
+            <p class="panel-heading">Polisy</p>
+            <div class="panel-block">
+                <table ng-if="polisy.length > 0" class="table is-striped is-hoverable is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>numerPolisy</th>
+                            <th>dataPodpisania</th>
+                            <th>statusPolisy</th>
+                            <th>ubezpieczajacy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="polisa in polisy">
+                            <td>{{polisa.numerPolisy}}</td>
+                            <td>{{polisa.dataPodpisania}}</td>
+                            <td>{{polisa.statusPolisy}}</td>
+                            <td>{{polisa.ubezpieczajacy}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

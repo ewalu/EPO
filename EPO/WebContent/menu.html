@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <script src="app.js"></script>
+    <script src="menuCtrl.js"></script>
+</head>
+
+<body ng-app="app">
+
+    <div ng-controller="menuCtrl" ng-init="init()">
+        
+        <nav class="navbar is-primary" role="navigation" aria-label="dropdown navigation">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Repozytorium polisy
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="wyszukiwaniepolis.html">
+                        Wyszukaj polisę
+                    </a>
+                    <a class="navbar-item" href="rejestracjapolisy.html">
+                        Zarejestruj polisę
+                    </a>
+                    <a class="navbar-item">
+                        Wygeneruj raporty
+                    </a>
+                    <hr class="navbar-divider">
+                </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Repozytorium osób
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        Wyszukaj osobę
+                    </a>
+                    <a class="navbar-item">
+                        Zarejestruj osobę
+                    </a>
+                    <a class="navbar-item">
+                        Wygeneruj raporty
+                    </a>
+                    <hr class="navbar-divider">
+                </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Repozytorium przedmiotów
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        Wyszukaj przedmiot
+                    </a>
+                    <a class="navbar-item" href="rejestracjaprzedmiotow.html">
+                        Zarejestruj przedmiot
+                    </a>
+                    <a class="navbar-item">
+                        Wygeneruj raporty
+                    </a>
+                    <hr class="navbar-divider">
+                </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Dane sieci sprzedaży
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="wyszukiwanieagentow.html">
+                        Wyszukaj agenta
+                    </a>
+                    <a class="navbar-item">
+                        Wygeneruj listę agentów
+                    </a>
+                    <hr class="navbar-divider">
+                </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Dane ubezpieczeń
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="wyszukiwanieubezpieczen.html">
+                        Wyszukaj ubezpieczenie
+                    </a>
+                    <a class="navbar-item">
+                        Wygeneruj raport dla ubezpieczenia
+                    </a>
+                    <hr class="navbar-divider">
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

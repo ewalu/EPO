@@ -6,19 +6,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
-	<script src="http://code.angularjs.org/1.6.7/angular.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-	<!--
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-	-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-	<script src="app.js"></script>
-    <script src="menu.js"></script>
+	<script src="rejestracjapolisy.js"></script>
+	<script src="wyszukiwaniepolis.js"></script>
 </head>
 
 <body ng-app="app">
-		<div ui-view></div>
+	<div ng-controller="mojCtrl" class="container is-widescreen">
+		<ng-include src="'menu.html'"></ng-include>
+
+		<br/>
+
+		<aside class="menu">
+			<p class="menu-label">
+			  Rodzaj przedmiotu
+			</p>
+			<ul class="menu-list">
+			  <li><a href = "rejestracjanieruchomosci.html">Nieruchomość</a></li>
+			  <li><a>Pojazd</a></li>
+			</ul>
+		  </aside>
 </body>
 
 </html>
