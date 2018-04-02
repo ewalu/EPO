@@ -31,9 +31,9 @@ public class RyzykoBean {
 	@Asynchronous
 	public void dzialaj() {
 		try {
-			log.info("Dzia³am...");
+			log.info("Dziaï¿½am...");
 			Thread.sleep(10000);
-			log.info("Ju¿ koniec!");
+			log.info("Juï¿½ koniec!");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,22 +42,22 @@ public class RyzykoBean {
 	
 	@PostActivate
 	private void activate() {
-		log.info("Aktywowa³em siê");
+		log.info("Aktywowaï¿½em siï¿½");
 	}
 	
 	@PrePassivate
 	private void pass() {
-		log.info("Pasywowa³em siê");
+		log.info("Pasywowaï¿½em siï¿½");
 	}
 	
 	@PostConstruct
 	private void init() {
-		log.info("Powsta³em jako: "+symbol);
+		log.info("Powstaï¿½em jako: "+symbol);
 	}
 	
 	@PreDestroy
 	private void destroy() {
-		log.info("¯egnam oziêble");
+		log.info("ï¿½egnam oziï¿½ble");
 	}
 
 }

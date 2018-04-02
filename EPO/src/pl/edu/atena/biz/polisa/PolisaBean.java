@@ -21,9 +21,9 @@ public class PolisaBean implements PolisaLocal, PolisaRemote{
 	@Asynchronous
 	public void dzialaj() {
 		try {
-			log.info("Dzia³am...");
+			log.info("Dziaï¿½am...");
 			Thread.sleep(9000);
-			log.info("Ju¿ koniec!");
+			log.info("Juï¿½ koniec!");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,12 +32,12 @@ public class PolisaBean implements PolisaLocal, PolisaRemote{
 	
 	@PostConstruct
 	private void init() {
-		log.info("Powsta³em");
+		log.info("Powstaï¿½em");
 	}
 	
 	@PreDestroy
 	private void destroy() {
-		log.info("¯egnam");
+		log.info("ï¿½egnam");
 	}
 
 }
