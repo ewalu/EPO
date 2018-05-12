@@ -17,26 +17,20 @@ public class SlownikiBean {
 	
 	private Logger log = Logger.getLogger(SlownikiBean.class);
 	
-	private List<String> studenci = new ArrayList<>();
+	private List<String> miasta = new ArrayList<>();
 	
 	@PostConstruct
 	private void init() {
-		studenci.add("Aleks");
-		studenci.add("Ewa");
-		studenci.add("Robert");
-		studenci.add("Wiesia");
-		studenci.add("Krystian B");
-		studenci.add("Krystian D");
-		studenci.add("Arek");
-		studenci.add("Marian");
+		miasta.add("Gdynia");
+		miasta.add("Sopot");
 		
-		log.info(studenci);
+		log.info(miasta);
 		
 	}
 	
 	@Lock(LockType.READ)
-	public List<String> studenci(){
-		return studenci;
+	public List<String> miasta(){
+		return miasta;
 	}
 
 }
