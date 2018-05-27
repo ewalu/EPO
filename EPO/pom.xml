@@ -67,6 +67,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>EPO</finalName>
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
 			<resource>
