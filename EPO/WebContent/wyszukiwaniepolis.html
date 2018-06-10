@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Document</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-<script src="rejestracjapolisy.js"></script>
-<script src="wyszukiwaniepolis.js"></script>
-</head>
-
-<body ng-app="app">
 	<div ng-controller="mojCtrl" class="container is-widescreen">
 
 		<ng-include src="'menu.html'"></ng-include>
@@ -55,8 +38,10 @@
 
 		<div class="field is-grouped is-grouped-centered">
 			<div class="control">
-				<button class="button is-link" ng-click="wyszukajPoNumerze()">Wyszukaj
-					polisy</button>
+				<button class="button is-link" ng-click="wyszukajPolisy()">Wyszukaj polisy</button>
+			</div>
+			<div class="control">
+				<button class="button is-text">Cancel</button>
 			</div>
 		</div>
 
@@ -71,22 +56,15 @@
 						<tr>
 							<th>numerPolisy</th>
 							<th>dataPodpisania</th>
-							<th>statusPolisy</th>
-							<th>ubezpieczajacy</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="polisa in polisy">
-							<td>{{polisa.numerPolisy}}</td>
-							<td>{{polisa.dataPodpisania}}</td>
-							<td>{{polisa.statusPolisy}}</td>
-							<td>{{polisa.ubezpieczajacy}}</td>
+							<td>{{polisa.policyNumber}}</td>
+							<td>{{polisa.signDate}}</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</nav>
 	</div>
-</body>
-
-</html>

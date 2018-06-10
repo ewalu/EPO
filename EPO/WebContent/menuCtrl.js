@@ -3,11 +3,11 @@ app.controller('menuCtrl', function ($state, $scope) {
     const scope = $scope;
 
     scope.doPolisy = () => {
-        $state.go('rejestracjapolisy');
+        $state.go('polisa');
     }
 
     scope.szukajPolise = () => {
-        $state.go('wyszukiwaniepolis');
+        $state.go('szukaj');
     }
 
     scope.init = () => {
