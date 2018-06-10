@@ -19,7 +19,7 @@ app.controller('mojCtrl', function($scope, $http){
     ];
 
     scope.modelpolisy = {
-        numerPolisy : null,
+        policyNumber : null,
         ubezpieczajacy : null,
         skladka : null,
         signDate : null,
@@ -35,7 +35,7 @@ app.controller('mojCtrl', function($scope, $http){
             {
                 method: 'GET',
                 //params: scope.modelpolisy,
-                url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/create/'+scope.modelpolisy.numerPolisy+'/'+scope.modelpolisy.ubezpieczajacy+'/'+scope.modelpolisy.skladka+'/'+scope.modelpolisy.statusPolisy,
+                url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/create/'+scope.modelpolisy.policyNumber+'/'+scope.modelpolisy.ubezpieczajacy+'/'+scope.modelpolisy.skladka+'/'+scope.modelpolisy.statusPolisy,
                 //params: {"numerPolisy": model.numerPolisy, "ubezpieczajacy": model.ubezpieczajacy, "skladka": model.skladka},
                 //data: scope.modelpolisy,
                 headers: {'Content-Type': 'application/json '},
@@ -44,10 +44,10 @@ app.controller('mojCtrl', function($scope, $http){
         ).then(
             (response) => {
             isSave = true;
-           alert(`Poprawnie zapisano dane polisy: ${response.data.numerPolisy}`);
+           alert(`Poprawnie zapisano dane polisy: ${response.data.policyNumber}`);
            console.log('ewa666'+response);
         }, (response) => {
-            alert('Błąd zapisu danych dla: ' + scope.modelpolisy.numerPolisy);
+            alert('Błąd zapisu danych dla: ' + scope.modelpolisy.policyNumber);
             console.log('ewa666'+response);
         }
     );
