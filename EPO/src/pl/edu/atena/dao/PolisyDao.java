@@ -1,11 +1,15 @@
 package pl.edu.atena.dao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import pl.edu.atena.entities.Person;
 import pl.edu.atena.entities.Policy;
+import pl.edu.atena.entities.PolicyState;
 
 @Stateless
 public class PolisyDao {
@@ -33,6 +37,29 @@ public class PolisyDao {
 			em.remove(polisa);
 		}
 	}
+	
+	public Policy szukajPoNumerze (String numer) {
+		Query query = em.createQuery("select p from Policy p "
+				//+"join fetch p.agenci "
+				+ "where p.numerPolisy = :numerPolisy");
+		query.setParameter("numerPolisy", numer);
+		return (Policy) query.getSingleResult();
+	}
+	
+	public List<Policy> szukajPoStatusie (PolicyState status) {
+		Query query = em.createQuery("select p from Policy p where p.status = :statusPolisy");
+		query.setParameter("statusPolisy", status);
+		return (List<Policy>) query.getResultList();
+	}
+	
+	public String ilePolis () {
+		Query query = em.createQuery("select count(*) from Policy p");
+		return query.getResultList().toString();
+	}
+	public List<Policy> select(){
+		Query query = em.createQuery("select p from Policy p");
+		return query.getResultList();
+}
 	
 
 }

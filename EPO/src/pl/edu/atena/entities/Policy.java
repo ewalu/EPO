@@ -39,11 +39,11 @@ public class Policy {
 	@OneToOne
 	private Person insured;
 	
-	@ManyToMany
+	/*@ManyToMany
 	private List<Profile> profiles;
 	
 	@OneToMany
-	private List<Risk> risks;
+	private List<Risk> risks;*/
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date wr = Date.from(Instant.now());
@@ -138,13 +138,13 @@ public class Policy {
 		this.vt = vt;
 	}
 
-	public List<Risk> getRisks() {
+	/*public List<Risk> getRisks() {
 		return risks;
 	}
 
 	public void setRisks(List<Risk> risks) {
 		this.risks = risks;
-	}
+	}*/
 	
 
 }

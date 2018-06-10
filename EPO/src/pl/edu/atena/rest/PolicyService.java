@@ -2,6 +2,7 @@ package pl.edu.atena.rest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -61,6 +62,17 @@ public class PolicyService {
 		polisaDao.delete(id);
 		return Response.status(200).build();
 	}
+	
+	@GET
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/find/getpolicies")
+	public List<Policy> select() {
+				List<Policy> polisy = polisaDao.select();
+				Response.status(200).entity(polisy).build();
+				return polisy;
+	}
+
 
 	
 	
