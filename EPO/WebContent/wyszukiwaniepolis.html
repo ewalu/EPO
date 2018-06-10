@@ -54,14 +54,18 @@
 					class="table is-striped is-hoverable is-fullwidth">
 					<thead>
 						<tr>
-							<th>numerPolisy</th>
-							<th>dataPodpisania</th>
+							<th>ID</th>
+							<th>Numer</th>
+							<th>Data zawarcia</th>
+							<th>Skladka (PLN)</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="polisa in polisy">
+							<td>{{polisa.id}}</td>
 							<td>{{polisa.policyNumber}}</td>
 							<td>{{polisa.signDate}}</td>
+							<td>{{polisa.premium}}</td>
 						</tr>
 					</tbody>
 				</table>

@@ -35,8 +35,8 @@ app.controller('mojCtrl', function($scope, $http){
             {
                 method: 'GET',
                 //params: scope.modelpolisy,
-                url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/create/'+scope.modelpolisy.policyNumber+'/'+scope.modelpolisy.ubezpieczajacy+'/'+scope.modelpolisy.skladka+'/'+scope.modelpolisy.statusPolisy,
-                //params: {"numerPolisy": model.numerPolisy, "ubezpieczajacy": model.ubezpieczajacy, "skladka": model.skladka},
+                url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/create/'+scope.modelpolisy.policyNumber+'/'+scope.modelpolisy.signDate+'/'+scope.modelpolisy.ubezpieczajacy+'/'+scope.modelpolisy.skladka+'/'+scope.modelpolisy.statusPolisy,
+                //params: {"numerPolisy": model.numerPolisy, "ubezpieczajacy": model.ubezpieczajacy, "skladka": model.sklad.ka},
                 //data: scope.modelpolisy,
                 headers: {'Content-Type': 'application/json '},
                 withCredentials: true

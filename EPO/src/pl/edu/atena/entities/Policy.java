@@ -2,6 +2,8 @@ package pl.edu.atena.entities;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
 
@@ -52,10 +54,10 @@ public class Policy {
 	private Date signDate = Date.from(Instant.now());
 	
 	@Temporal(TemporalType.DATE)
-	private Date vf;
+	private Date insuranceStartDate;
 	
 	@Temporal(TemporalType.DATE)
-	private Date vt;
+	private Date insuranceEndDate;
 	
 	@Enumerated(EnumType.STRING)
 	private PolicyState status = PolicyState.ZATWIERDZONA;
@@ -122,21 +124,22 @@ public class Policy {
 		this.insured = insured;
 	}
 
-	public Date getVf() {
-		return vf;
+	public Date getInsuranceStartDate() {
+		return insuranceStartDate;
 	}
 
-	public void setVf(Date vf) {
-		this.vf = vf;
+	public void setInsuranceStartDate(Date insuranceStartDate) {
+		this.insuranceStartDate = insuranceStartDate;
 	}
 
-	public Date getVt() {
-		return vt;
+	public Date getInsuranceEndDate() {
+		return insuranceEndDate;
 	}
 
-	public void setVt(Date vt) {
-		this.vt = vt;
+	public void setInsuranceEndDate(Date insuranceEndDate) {
+		this.insuranceEndDate = insuranceEndDate;
 	}
+
 
 	/*public List<Risk> getRisks() {
 		return risks;

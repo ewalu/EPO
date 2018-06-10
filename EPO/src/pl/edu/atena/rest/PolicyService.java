@@ -1,7 +1,9 @@
 package pl.edu.atena.rest;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -31,10 +33,11 @@ public class PolicyService {
 	
 	//http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/create/ewa001/ewa/1/ZAWIESZONA
 	@GET
-	@Path("/create/{numerPolisy}/{ubezpieczajacy}/{skladka}/{status}")
+	@Path("/create/{numerPolisy}/{signdate}/{ubezpieczajacy}/{skladka}/{status}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Policy create2(@PathParam("numerPolisy") String nrPolisy, 
-			@PathParam("ubezpieczajacy") String ubezpieczajacy, 
+			@PathParam("ubezpieczajacy") String ubezpieczajacy,
+			@PathParam("signdate") Date signDate, 
 			@PathParam("skladka") BigDecimal skladka,
 			@PathParam("status") PolicyState status) {
 				Policy polisa = new Policy();
@@ -42,6 +45,7 @@ public class PolicyService {
 				//polisa.setInsured(ubezpieczajacy);
 				polisa.setPremium(skladka);
 				polisa.setStatus(status);
+				polisa.setSignDate(signDate);
 				polisaDao.create(polisa);
 				return polisa;
 	}
