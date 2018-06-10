@@ -23,26 +23,26 @@
 					</div>
 				</div>
 
-				<div class="field is-small">
+				<!--div class="field is-small">
 					<label class="label">Ubezpieczajacy</label>
 					<div class="control">
 						<input class="input" type="text" placeholder="Ubezpieczajacy"
 							ng-model="modelpolisy.ubezpieczajacy">
 					</div>
-				</div>
+				</di-->
 
 				<div class="field is-small">
 					<label class="label">Składka</label>
 					<div class="control">
 						<input class="input" type="number" placeholder="Składka polisy"
-							ng-model="modelpolisy.skladka">
+							ng-model="modelpolisy.premium">
 					</div>
 				</div>
 
 				<div class="field is-small">
 					<label class="label">Status</label>
 					<div class="select is-fullwidth">
-						<select name="status" ng-model="modelpolisy.statusPolisy"
+						<select name="status" ng-model="modelpolisy.status"
 							ng-options="option as option for option in statusy">
 						</select>
 					</div>

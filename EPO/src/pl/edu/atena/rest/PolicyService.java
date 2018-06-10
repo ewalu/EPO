@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import javax.annotation.Resource;
 import javax.ejb.EJB;
@@ -31,19 +32,26 @@ public class PolicyService {
 	
 	@EJB PolisyDao polisaDao;
 	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response create(Policy policy) {
+		Objects.nonNull(policy);
+		polisaDao.create(policy);
+		return Response.status(200).entity(policy).build();
+}
+	
 	//http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/create/ewa001/ewa/1/ZAWIESZONA
 	@GET
-	@Path("/create/{numerPolisy}/{signdate}/{ubezpieczajacy}/{skladka}/{status}")
+	@Path("/create/{policyNumber}/{signDate}/{premium}/{status}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Policy create2(@PathParam("numerPolisy") String nrPolisy, 
-			@PathParam("ubezpieczajacy") String ubezpieczajacy,
-			@PathParam("signdate") Date signDate, 
-			@PathParam("skladka") BigDecimal skladka,
+	public Policy create2(@PathParam("policyNumber") String policyNumber, 
+			@PathParam("signDate") Date signDate, 
+			@PathParam("premium") BigDecimal premium,
 			@PathParam("status") PolicyState status) {
 				Policy polisa = new Policy();
-				polisa.setPolicyNumber(nrPolisy);
-				//polisa.setInsured(ubezpieczajacy);
-				polisa.setPremium(skladka);
+				polisa.setPolicyNumber(policyNumber);
+				polisa.setPremium(premium);
 				polisa.setStatus(status);
 				polisa.setSignDate(signDate);
 				polisaDao.create(polisa);
