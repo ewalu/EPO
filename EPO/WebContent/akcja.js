@@ -31,9 +31,9 @@ app.controller('mojCtrl', function($scope, $http){
     scope.zapiszPolisePost = () =>{
         $http({
             method: 'POST',
-            url: `http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/policy/`,
-            data: scope.model,
-            headers: { 'Content-Type': 'application/json ' }
+            url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/policy',
+            data: scope.modelpolisy,
+            headers: { 'Content-Type': 'application/json' }
         }).
             then((response) => {
                 isSave = true;
