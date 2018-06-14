@@ -27,6 +27,12 @@ app.controller('mojCtrl', function($scope, $http){
         insuranceEndDate: null
     }
 
+    scope.modelosoby = {
+        firstName : null,
+        lastName : null,
+        pesel : null
+    }
+
     scope.polisy = [];
 
 
