@@ -23,6 +23,8 @@ app.controller('mojCtrl', function($scope, $http){
         premium : null,
         signDate : null,
         status : null,
+        insuranceStartDate: null,
+        insuranceEndDate: null
     }
 
     scope.polisy = [];
@@ -31,7 +33,7 @@ app.controller('mojCtrl', function($scope, $http){
     scope.zapiszPolisePost = () =>{
         $http({
             method: 'POST',
-            url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/policy',
+            url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/',
             data: scope.modelpolisy,
             headers: { 'Content-Type': 'application/json' }
         }).

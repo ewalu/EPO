@@ -48,22 +48,39 @@
 					</div>
 				</div>
 
+				<div class="field is-small">
+					<label class="label">Początek okresu ochrony</label>
+					<div class="control">
+						<input class="input" type="date" placeholder="yyyy-MM-DD" date-format = "yyyy-MM-dd"
+							ng-model="modelpolisy.insuranceStartDate">
+					</div>
+				</div>
+
+				<div class="field is-small">
+					<label class="label">Koniec okresu ochrony</label>
+					<div class="control">
+						<input class="input" type="date" placeholder="yyyy-MM-DD" date-format = "yyyy-MM-dd"
+							ng-model="modelpolisy.insuranceEndDate">
+					</div>
+				</div>
+
+
 			</form>
 		</div>
 
 
-		<div class="field is-grouped is-grouped-centered">
+		<!--div class="field is-grouped is-grouped-centered">
 			<div class="control">
 				<button class="button is-link" ng-click="zapiszPolise()">Zapisz</button>
 			</div>
 			<div class="control">
 				<button class="button is-text">Cancel</button>
 			</div>
-		</div>
+		</div-->
 
 		<div class="field is-grouped is-grouped-centered">
 				<div class="control">
-					<button class="button is-link" ng-click="zapiszPolisePost()">ZapiszPost</button>
+					<button class="button is-link" ng-click="zapiszPolisePost()">Zapisz Polisę</button>
 				</div>
 				<div class="control">
 					<button class="button is-text">Cancel</button>
