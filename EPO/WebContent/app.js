@@ -14,5 +14,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
        .state("szukaj", {
             url: '/szukaj',
             templateUrl: "wyszukiwaniepolis.html"
+        })
+        .state("osoba", {
+            url: '/osoba',
+            templateUrl: "rejestracjaosoby.html"
         });
 });

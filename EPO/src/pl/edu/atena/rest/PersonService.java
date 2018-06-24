@@ -30,7 +30,6 @@ public class PersonService {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/create")
 	public Response create(Person ubezp) {
 		ubezpDao.create(ubezp);
 		return Response.status(200).entity(ubezp).build();

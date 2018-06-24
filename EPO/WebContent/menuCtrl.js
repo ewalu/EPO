@@ -10,6 +10,10 @@ app.controller('menuCtrl', function ($state, $scope) {
         $state.go('szukaj');
     }
 
+    scope.doOsoby = () => {
+        $state.go('osoba');
+    }
+
     scope.init = () => {
         console.log('Menu INIT');
     }

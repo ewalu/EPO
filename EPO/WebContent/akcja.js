@@ -35,6 +35,21 @@ app.controller('mojCtrl', function($scope, $http){
 
     scope.polisy = [];
 
+    scope.zapiszOsobePost = () =>{
+        $http({
+            method: 'POST',
+            url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/ubezpieczony/',
+            data: scope.modelosoby,
+            headers: { 'Content-Type': 'application/json' }
+        }).
+            then((response) => {
+                isSave = true;
+                alert(`Poprawnie zapisano dane polisy. Id: ${response.data.id}`);
+            }, (response) => {
+                alert('Błąd zapisu danych: ' + response.data);
+            });
+    }
+
 
     scope.zapiszPolisePost = () =>{
         $http({
