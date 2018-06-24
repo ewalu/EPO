@@ -13,7 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import pl.edu.atena.dao.PolisyDao;
+import pl.edu.atena.dao.PolicyDao;
 import pl.edu.atena.dao.PersonDao;
 import pl.edu.atena.entities.Policy;
 import pl.edu.atena.entities.Person;
@@ -25,7 +25,7 @@ public class PersonService {
 	//private SessionContext context;
 	
 	@EJB PersonDao ubezpDao;
-	@EJB PolisyDao polisaDao;
+	@EJB PolicyDao polisaDao;
 	
 	
 	@POST
@@ -53,6 +53,16 @@ public class PersonService {
 				List<Person> osoby = ubezpDao.select();
 				Response.status(200).entity(osoby).build();
 				return osoby;
+	}
+	
+	@GET
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/find/getperson/{pesel}")
+	public Person findpesel(@PathParam("pesel") String pesel) {
+				Person osoba = ubezpDao.findPesel(pesel);
+				Response.status(200).entity(osoba).build();
+				return osoba;
 	}
 	
 	/*@POST

@@ -64,6 +64,21 @@ app.controller('mojCtrl', function($scope, $http){
                 console.log('ewa666'+response);
 });
     }
+    
+    scope.wyszukajOsobyPesel = () => {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/ubezpieczony/find/getperson/'+scope.modelosoby.pesel,
+            headers: { 'Content-Type': 'application/json ' }
+        }).
+            then((response) => {
+                scope.osoby = response.data;
+                console.log('ewa666'+response);
+            }, (response) => {
+                alert('Błąd podczas próby odczytu danych: ' + response.data);
+                console.log('ewa666'+response);
+});
+    }
 
 
     scope.zapiszPolisePost = () =>{

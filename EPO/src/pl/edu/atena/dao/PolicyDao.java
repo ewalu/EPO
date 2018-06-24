@@ -12,7 +12,7 @@ import pl.edu.atena.entities.Policy;
 import pl.edu.atena.entities.PolicyState;
 
 @Stateless
-public class PolisyDao {
+public class PolicyDao {
 	@PersistenceContext(unitName = "PolisaPU")
 	private EntityManager em;
 	

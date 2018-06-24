@@ -22,7 +22,7 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import pl.edu.atena.dao.PolisyDao;
+import pl.edu.atena.dao.PolicyDao;
 import pl.edu.atena.entities.Policy;
 import pl.edu.atena.entities.PolicyState;
 
@@ -32,7 +32,7 @@ public class PolicyService {
 	//@Resource
 	//private SessionContext context;
 	
-	@EJB PolisyDao polisaDao;
+	@EJB PolicyDao polisaDao;
 	
 	//http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/policy
 	
