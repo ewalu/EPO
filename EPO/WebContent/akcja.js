@@ -24,10 +24,12 @@ app.controller('mojCtrl', function($scope, $http){
         signDate : null,
         status : null,
         insuranceStartDate: null,
-        insuranceEndDate: null
+        insuranceEndDate: null,
+        insured: null
     }
 
     scope.modelosoby = {
+        id : null,
         firstName : null,
         lastName : null,
         pesel : null
@@ -73,6 +75,7 @@ app.controller('mojCtrl', function($scope, $http){
         }).
             then((response) => {
                 scope.osoby = response.data;
+                scope.modelpolisy.insured = response.data[0];
                 console.log('ewa666'+response);
             }, (response) => {
                 alert('Błąd podczas próby odczytu danych: ' + response.data);
