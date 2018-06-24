@@ -59,10 +59,10 @@ public class PersonService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/find/getperson/{pesel}")
-	public Person findpesel(@PathParam("pesel") String pesel) {
-				Person osoba = ubezpDao.findPesel(pesel);
-				Response.status(200).entity(osoba).build();
-				return osoba;
+	public List<Person> findpesel(@PathParam("pesel") String pesel) {
+				List<Person> osoby = ubezpDao.findPesel(pesel);
+				Response.status(200).entity(osoby).build();
+				return osoby;
 	}
 	
 	/*@POST

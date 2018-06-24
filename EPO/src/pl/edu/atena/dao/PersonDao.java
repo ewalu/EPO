@@ -32,11 +32,11 @@ public class PersonDao {
 		return query.getResultList();
 	}
 	
-	public Person findPesel (String pesel) {
+	public List<Person> findPesel (String pesel) {
 		Query query = em.createQuery("select p from Person p "
 				+ "where p.pesel = :pesel");
 		query.setParameter("pesel", pesel);
-		return (Person) query.getSingleResult();
+		return query.getResultList();
 	}
 	
 	/*public Person dodajPolise(Long id, Policy polisa) {

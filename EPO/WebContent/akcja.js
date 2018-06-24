@@ -44,7 +44,7 @@ app.controller('mojCtrl', function($scope, $http){
         }).
             then((response) => {
                 isSave = true;
-                alert(`Poprawnie zapisano dane polisy. Id: ${response.data.id}`);
+                alert(`Poprawnie zapisano dane osoby. Id: ${response.data.id}`);
             }, (response) => {
                 alert('Błąd zapisu danych: ' + response.data);
             });
