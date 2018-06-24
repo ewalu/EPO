@@ -18,5 +18,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state("osoba", {
             url: '/osoba',
             templateUrl: "rejestracjaosoby.html"
+        })
+        .state("szukajosobe", {
+            url: '/szukajosobe',
+            templateUrl: "wyszukiwanieosob.html"
         });
 });

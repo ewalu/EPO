@@ -1,0 +1,71 @@
+<div ng-controller="mojCtrl" class="container is-widescreen">
+
+    <ng-include src="'menu.html'"></ng-include>
+
+    <br />
+
+    <div class="columns">
+
+        <form class="column is-6 is-offset-3">
+            <h1 class="title">Podaj dane osób</h1>
+            <div class="field is-small">
+                <label class="label">Imię</label>
+                <div class="control">
+                    <input class="input" type="search" placeholder="Imię"
+                        ng-model="modelosoby.firstName">
+                </div>
+            </div>
+            <div class="field is-small">
+                <label class="label">Nazwisko</label>
+                <div class="control">
+                    <input class="input" type="search" placeholder="Nazwisko"
+                        ng-model="modelosoby.lastName">
+                </div>
+            </div>
+            <div class="field is-small">
+                <label class="label">Pesel</label>
+                <div class="control">
+                    <input class="input" type="search" placeholder="Pesel"
+                        ng-model="modelosoby.pesel">
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="field is-grouped is-grouped-centered">
+        <div class="control">
+            <button class="button is-link" ng-click="wyszukajOsoby()">Wyszukaj osoby</button>
+        </div>
+        <div class="control">
+            <button class="button is-text">Cancel</button>
+        </div>
+    </div>
+
+    <br />
+
+    <nav class="panel">
+        <p class="panel-heading">Osoby</p>
+        <div class="panel-block">
+            <table ng-if="osoby.length > 0"
+                class="table is-striped is-hoverable is-fullwidth">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Pesel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="osoba in osoby">
+                        <td>{{osoba.id}}</td>
+                        <td>{{osoba.firstName}}</td>
+                        <td>{{osoba.lastName}}</td>
+                        <td>{{osoba.pesel}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </nav>
+</div>

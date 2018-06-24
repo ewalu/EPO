@@ -33,7 +33,7 @@ app.controller('mojCtrl', function($scope, $http){
         pesel : null
     }
 
-    scope.polisy = [];
+    scope.osoby = [];
 
     scope.zapiszOsobePost = () =>{
         $http({
@@ -48,6 +48,21 @@ app.controller('mojCtrl', function($scope, $http){
             }, (response) => {
                 alert('Błąd zapisu danych: ' + response.data);
             });
+    }
+
+    scope.wyszukajOsoby = () => {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/ubezpieczony/find/getpersons',
+            headers: { 'Content-Type': 'application/json ' }
+        }).
+            then((response) => {
+                scope.osoby = response.data;
+                console.log('ewa666'+response);
+            }, (response) => {
+                alert('Błąd podczas próby odczytu danych: ' + response.data);
+                console.log('ewa666'+response);
+});
     }
 
 

@@ -1,6 +1,7 @@
 package pl.edu.atena.rest;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
@@ -42,6 +43,16 @@ public class PersonService {
 				Person ubezp = new Person();
 				ubezp.setNazwa(nazwa);
 				return ubezp;
+	}
+	
+	@GET
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/find/getpersons")
+	public List<Person> select() {
+				List<Person> osoby = ubezpDao.select();
+				Response.status(200).entity(osoby).build();
+				return osoby;
 	}
 	
 	/*@POST

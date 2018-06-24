@@ -1,8 +1,11 @@
 package pl.edu.atena.dao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import pl.edu.atena.entities.Policy;
 import pl.edu.atena.entities.Person;
@@ -22,6 +25,11 @@ public class PersonDao {
 	
 	public void refresh(Person ubezp) {
 		em.refresh(ubezp);
+	}
+	
+	public List<Person> select(){
+		Query query = em.createQuery("select p from Person p");
+		return query.getResultList();
 	}
 	
 	/*public Person dodajPolise(Long id, Policy polisa) {
