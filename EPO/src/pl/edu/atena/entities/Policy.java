@@ -37,6 +37,7 @@ public class Policy {
 	private Long id;
 	
 	private String policyNumber;
+	
 	private BigDecimal premium;
 	
 	@OneToOne
@@ -47,6 +48,9 @@ public class Policy {
 	
 	@OneToMany
 	private List<Risk> risks;*/
+	
+	@OneToMany
+	private List<PolicyMessage> policyMessages;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date wr = Date.from(Instant.now());
