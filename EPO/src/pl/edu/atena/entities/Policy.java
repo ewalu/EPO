@@ -16,6 +16,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -53,7 +54,7 @@ public class Policy {
 	private List<Risk> risks;*/
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "policy", cascade=CascadeType.ALL)
-	private List<PolicyMessage> policyMessages = new ArrayList();
+	private List<PolicyMessage> policyMessages = new ArrayList<PolicyMessage>();
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date wr = Date.from(Instant.now());

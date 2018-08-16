@@ -1,6 +1,7 @@
 package pl.edu.atena.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
@@ -21,7 +22,8 @@ public class PolicyMessage {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "POL_ID", foreignKey = @ForeignKey(name = "FK_MESSAGE_TO_POLICY"))
+	@JoinColumn(name = "POL_ID", foreignKey = @ForeignKey(name = "FK_MESSAGE_TO_POLICY"), insertable = true)
+	
 	private Policy policy;
 	
 	private Integer code;
