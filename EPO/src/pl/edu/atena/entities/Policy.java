@@ -38,6 +38,7 @@ public class Policy {
 	
 	@Id
 	@GeneratedValue
+	@JoinColumn
 	private Long id;
 	
 	private String policyNumber;

@@ -28,6 +28,7 @@ public class PolicyDao {
 	public void create (Policy polisa) {
 		policyValidateMethod.validatePolicy(polisa);
 		policySetStatusMethod.setStatus(polisa);
+		polisa.getPolicyMessages().forEach(mess->em.persist(mess));
 		em.persist(polisa);
 	}
 	
