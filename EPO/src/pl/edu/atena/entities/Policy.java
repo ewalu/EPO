@@ -145,6 +145,20 @@ public class Policy {
 		this.insuranceEndDate = insuranceEndDate;
 	}
 
+	public List<PolicyMessage> getPolicyMessages() {
+		return policyMessages;
+	}
+
+	public void setPolicyMessages(List<PolicyMessage> policyMessages) {
+		this.policyMessages = policyMessages;
+	}
+	
+	public void addMessageToPolicy(Message message) {
+		PolicyMessage policyMessage = new PolicyMessage();
+		policyMessage.setMessage(message);
+		this.getPolicyMessages().add(policyMessage);
+	}
+
 
 	/*public List<Risk> getRisks() {
 		return risks;

@@ -1,6 +1,7 @@
 package pl.edu.atena.entities;
 
 public enum Message {
+	POLICY_NUMBER_NO_DATA(0, "Brak numeru polisy"),
 	NEGATIVE_PREMIUM(1,"Niepoprawna skladka"),
 	INCORECT_PERIOD(2, "Niepoprawny okres ochorony");
 	
