@@ -4,14 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "EPO_POLICY_MESSAGE",
-uniqueConstraints = {@UniqueConstraint(columnNames= {"id"})},
-schema = "public",
-indexes = {@Index(columnList = "id")}
+@Table(name = "EPO_MESSAGE",
+schema = "public"
 )
 public class PolicyMessage {
 	
@@ -19,7 +18,12 @@ public class PolicyMessage {
 	@GeneratedValue
 	private Long id;
 	
-	private Message message;
+	@ManyToOne
+	private Policy polisa;
+	
+	private Integer code;
+	
+	private String message;
 
 	public Long getId() {
 		return id;
@@ -29,11 +33,27 @@ public class PolicyMessage {
 		this.id = id;
 	}
 
-	public Message getMessage() {
+	public Policy getPolisa() {
+		return polisa;
+	}
+
+	public void setPolisa(Policy polisa) {
+		this.polisa = polisa;
+	}
+
+	public Integer getCode() {
+		return code;
+	}
+
+	public void setCode(Integer code) {
+		this.code = code;
+	}
+
+	public String getMessage() {
 		return message;
 	}
 
-	public void setMessage(Message message) {
+	public void setMessage(String message) {
 		this.message = message;
 	}
 

@@ -17,17 +17,21 @@ public class PolicyValidateMethod {
 			this.validatePremium(policy);
 			this.validatePeriod(policy);
 			
+			if(policy.getPolicyMessages().isEmpty()) {
+				policy.addMessageToPolicy(Message.VALID_POLICY_DATA);
+			}
+			
 		}
 		
 	}
 	
-	public void validatePremium(Policy policy) {
+	private void validatePremium(Policy policy) {
 		if(Objects.isNull(policy.getPremium()) || policy.getPremium().compareTo(BigDecimal.ZERO)<=0) {
 			policy.addMessageToPolicy(Message.NEGATIVE_PREMIUM);
 		}
 	}
 	
-	public void validatePeriod(Policy policy) {
+	private void validatePeriod(Policy policy) {
 		if(Objects.isNull(policy.getInsuranceEndDate())|| Objects.isNull(policy.getInsuranceStartDate())) {
 			policy.addMessageToPolicy(Message.PERIOD_DATE_NO_DATA);
 		} else if(policy.getInsuranceEndDate().compareTo(policy.getInsuranceStartDate())<0) {

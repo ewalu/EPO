@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
@@ -50,7 +52,7 @@ public class Policy {
 	@OneToMany
 	private List<Risk> risks;*/
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 	private List<PolicyMessage> policyMessages = new ArrayList();
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -146,6 +148,7 @@ public class Policy {
 		this.insuranceEndDate = insuranceEndDate;
 	}
 
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	public List<PolicyMessage> getPolicyMessages() {
 		return policyMessages;
 	}
@@ -156,7 +159,8 @@ public class Policy {
 	
 	public void addMessageToPolicy(Message message) {
 		PolicyMessage policyMessage = new PolicyMessage();
-		policyMessage.setMessage(message);
+		policyMessage.setCode(message.returnCode());
+		policyMessage.setMessage(message.returnText());
 		this.getPolicyMessages().add(policyMessage);
 	}
 

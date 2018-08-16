@@ -34,7 +34,9 @@ public class PolicyValidateMethodTest {
 		policy.setInsuranceEndDate(END_DATE);
 		policy.setInsuranceStartDate(START_DATE);
 		policyValidateMethod.validatePolicy(policy);
-		Assert.assertTrue(policy.getPolicyMessages().isEmpty());
+		Assert.assertEquals(policy.getPolicyMessages().size(), 1);
+		Assert.assertTrue(policy.getPolicyMessages()
+				.stream().anyMatch(mess->mess.getMessage().equals(Message.VALID_POLICY_DATA)));
 	}
 	
 	@Test
@@ -49,6 +51,8 @@ public class PolicyValidateMethodTest {
 		policyValidateMethod.validatePolicy(policy);
 		Assert.assertFalse(policy.getPolicyMessages().isEmpty());
 		Assert.assertEquals(policy.getPolicyMessages().size(), 3);
+		Assert.assertTrue(policy.getPolicyMessages()
+				.stream().noneMatch(mess->mess.getMessage().equals(Message.VALID_POLICY_DATA)));
 		Assert.assertTrue(policy.getPolicyMessages()
 				.stream().anyMatch(mess->mess.getMessage().equals(Message.POLICY_NUMBER_NO_DATA)));
 		Assert.assertTrue(policy.getPolicyMessages()
@@ -69,6 +73,8 @@ public class PolicyValidateMethodTest {
 		policyValidateMethod.validatePolicy(policy);
 		Assert.assertFalse(policy.getPolicyMessages().isEmpty());
 		Assert.assertEquals(policy.getPolicyMessages().size(), 1);
+		Assert.assertTrue(policy.getPolicyMessages()
+				.stream().noneMatch(mess->mess.getMessage().equals(Message.VALID_POLICY_DATA)));
 		Assert.assertTrue(policy.getPolicyMessages()
 				.stream().noneMatch(mess->mess.getMessage().equals(Message.POLICY_NUMBER_NO_DATA)));
 		Assert.assertTrue(policy.getPolicyMessages()

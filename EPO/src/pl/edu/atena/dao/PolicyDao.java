@@ -3,10 +3,12 @@ package pl.edu.atena.dao;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import pl.edu.atena.biz.polisa.PolicyValidateMethod;
 import pl.edu.atena.entities.Person;
 import pl.edu.atena.entities.Policy;
 import pl.edu.atena.entities.PolicyState;
@@ -16,7 +18,11 @@ public class PolicyDao {
 	@PersistenceContext(unitName = "PolisaPU")
 	private EntityManager em;
 	
+	@Inject
+	private PolicyValidateMethod policyValidateMethod;
+	
 	public void create (Policy polisa) {
+		policyValidateMethod.validatePolicy(polisa);
 		em.persist(polisa);
 	}
 	
