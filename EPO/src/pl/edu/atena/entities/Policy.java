@@ -52,7 +52,7 @@ public class Policy {
 	@OneToMany
 	private List<Risk> risks;*/
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "policy", cascade=CascadeType.ALL)
 	private List<PolicyMessage> policyMessages = new ArrayList();
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -161,6 +161,7 @@ public class Policy {
 		PolicyMessage policyMessage = new PolicyMessage();
 		policyMessage.setCode(message.returnCode());
 		policyMessage.setMessage(message.returnText());
+		policyMessage.setType(message.getType().toString());
 		this.getPolicyMessages().add(policyMessage);
 	}
 

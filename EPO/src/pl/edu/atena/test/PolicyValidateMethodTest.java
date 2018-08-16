@@ -36,7 +36,7 @@ public class PolicyValidateMethodTest {
 		policyValidateMethod.validatePolicy(policy);
 		Assert.assertEquals(policy.getPolicyMessages().size(), 1);
 		Assert.assertTrue(policy.getPolicyMessages()
-				.stream().anyMatch(mess->mess.getMessage().equals(Message.VALID_POLICY_DATA)));
+				.stream().anyMatch(mess->mess.getCode().equals(Message.VALID_POLICY_DATA.getCode())));
 	}
 	
 	@Test
@@ -52,15 +52,15 @@ public class PolicyValidateMethodTest {
 		Assert.assertFalse(policy.getPolicyMessages().isEmpty());
 		Assert.assertEquals(policy.getPolicyMessages().size(), 3);
 		Assert.assertTrue(policy.getPolicyMessages()
-				.stream().noneMatch(mess->mess.getMessage().equals(Message.VALID_POLICY_DATA)));
+				.stream().noneMatch(mess->mess.getCode().equals(Message.VALID_POLICY_DATA.getCode())));
 		Assert.assertTrue(policy.getPolicyMessages()
-				.stream().anyMatch(mess->mess.getMessage().equals(Message.POLICY_NUMBER_NO_DATA)));
+				.stream().anyMatch(mess->mess.getCode().equals(Message.POLICY_NUMBER_NO_DATA.getCode())));
 		Assert.assertTrue(policy.getPolicyMessages()
-				.stream().noneMatch(mess->mess.getMessage().equals(Message.INCORECT_PERIOD)));
+				.stream().noneMatch(mess->mess.getCode().equals(Message.INCORECT_PERIOD.getCode())));
 		Assert.assertTrue(policy.getPolicyMessages()
-				.stream().anyMatch(mess->mess.getMessage().equals(Message.PERIOD_DATE_NO_DATA)));
+				.stream().anyMatch(mess->mess.getCode().equals(Message.PERIOD_DATE_NO_DATA.getCode())));
 		Assert.assertTrue(policy.getPolicyMessages()
-				.stream().anyMatch(mess->mess.getMessage().equals(Message.NEGATIVE_PREMIUM)));
+				.stream().anyMatch(mess->mess.getCode().equals(Message.NEGATIVE_PREMIUM.getCode())));
 	}
 	
 	@Test
@@ -74,15 +74,15 @@ public class PolicyValidateMethodTest {
 		Assert.assertFalse(policy.getPolicyMessages().isEmpty());
 		Assert.assertEquals(policy.getPolicyMessages().size(), 1);
 		Assert.assertTrue(policy.getPolicyMessages()
-				.stream().noneMatch(mess->mess.getMessage().equals(Message.VALID_POLICY_DATA)));
+				.stream().noneMatch(mess->mess.getCode().equals(Message.VALID_POLICY_DATA.getCode())));
 		Assert.assertTrue(policy.getPolicyMessages()
-				.stream().noneMatch(mess->mess.getMessage().equals(Message.POLICY_NUMBER_NO_DATA)));
+				.stream().noneMatch(mess->mess.getCode().equals(Message.POLICY_NUMBER_NO_DATA.getCode())));
 		Assert.assertTrue(policy.getPolicyMessages()
-				.stream().anyMatch(mess->mess.getMessage().equals(Message.INCORECT_PERIOD)));
+				.stream().anyMatch(mess->mess.getCode().equals(Message.INCORECT_PERIOD.getCode())));
 		Assert.assertTrue(policy.getPolicyMessages()
-				.stream().noneMatch(mess->mess.getMessage().equals(Message.PERIOD_DATE_NO_DATA)));
+				.stream().noneMatch(mess->mess.getCode().equals(Message.PERIOD_DATE_NO_DATA.getCode())));
 		Assert.assertTrue(policy.getPolicyMessages()
-				.stream().noneMatch(mess->mess.getMessage().equals(Message.NEGATIVE_PREMIUM)));
+				.stream().noneMatch(mess->mess.getCode().equals(Message.NEGATIVE_PREMIUM.getCode())));
 	}
 
 

@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.ForeignKey;
 import javax.persistence.UniqueConstraint;
 
 @Entity
@@ -19,11 +21,14 @@ public class PolicyMessage {
 	private Long id;
 	
 	@ManyToOne
-	private Policy polisa;
+	@JoinColumn(name = "POL_ID", foreignKey = @ForeignKey(name = "FK_MESSAGE_TO_POLICY"))
+	private Policy policy;
 	
 	private Integer code;
 	
 	private String message;
+	
+	private String type;
 
 	public Long getId() {
 		return id;
@@ -33,12 +38,12 @@ public class PolicyMessage {
 		this.id = id;
 	}
 
-	public Policy getPolisa() {
-		return polisa;
+	public Policy getPolicy() {
+		return policy;
 	}
 
-	public void setPolisa(Policy polisa) {
-		this.polisa = polisa;
+	public void setPolicy(Policy policy) {
+		this.policy = policy;
 	}
 
 	public Integer getCode() {
@@ -55,6 +60,14 @@ public class PolicyMessage {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }
