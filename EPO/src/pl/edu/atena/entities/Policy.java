@@ -68,7 +68,7 @@ public class Policy {
 	private Date insuranceEndDate;
 	
 	@Enumerated(EnumType.STRING)
-	private PolicyState status = PolicyState.ZATWIERDZONA;
+	private PolicyState status;
 	
 	/*public Polisa() {
 		Random r = new Random();
