@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class Policy {
 	private List<Risk> risks;*/
 	
 	@OneToMany
-	private List<PolicyMessage> policyMessages;
+	private List<PolicyMessage> policyMessages = new ArrayList();
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date wr = Date.from(Instant.now());

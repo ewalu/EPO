@@ -11,7 +11,7 @@ public class PolicyValidateMethod {
 	public void validatePolicy(Policy policy) {
 		if(!Objects.isNull(policy)) {
 		
-			if(policy.getPolicyNumber().isEmpty()) {
+			if(Objects.isNull(policy.getPolicyNumber())) {
 				policy.addMessageToPolicy(Message.POLICY_NUMBER_NO_DATA);
 			}
 			this.validatePremium(policy);
@@ -21,14 +21,14 @@ public class PolicyValidateMethod {
 		
 	}
 	
-	private void validatePremium(Policy policy) {
-		if(policy.getPremium().equals(null) || policy.getPremium().compareTo(BigDecimal.ZERO)<0) {
+	public void validatePremium(Policy policy) {
+		if(Objects.isNull(policy.getPremium()) || policy.getPremium().compareTo(BigDecimal.ZERO)<=0) {
 			policy.addMessageToPolicy(Message.NEGATIVE_PREMIUM);
 		}
 	}
 	
-	private void validatePeriod(Policy policy) {
-		if(policy.getInsuranceEndDate().equals(null) || policy.getInsuranceStartDate().equals(null)) {
+	public void validatePeriod(Policy policy) {
+		if(Objects.isNull(policy.getInsuranceEndDate())|| Objects.isNull(policy.getInsuranceStartDate())) {
 			policy.addMessageToPolicy(Message.PERIOD_DATE_NO_DATA);
 		} else if(policy.getInsuranceEndDate().compareTo(policy.getInsuranceStartDate())<0) {
 			policy.addMessageToPolicy(Message.INCORECT_PERIOD);
