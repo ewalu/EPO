@@ -4,9 +4,9 @@ import pl.edu.atena.entities.MessageType;
 import pl.edu.atena.entities.Policy;
 import pl.edu.atena.entities.PolicyState;
 
-public class PolicySetStatusMethod {
+public class PolicyValidateStatusMethod implements PolicyValidateMethod{
 	
-	public void setStatus(Policy policy) {
+	public void validate(Policy policy) {
 		policy.setStatus(PolicyState.ZATWIERDZONA);
 		if(policy.getPolicyMessages().stream().anyMatch(mess->mess.getType().equals(MessageType.ERROR.toString()))) {
 			policy.setStatus(PolicyState.ZAWIESZONA);

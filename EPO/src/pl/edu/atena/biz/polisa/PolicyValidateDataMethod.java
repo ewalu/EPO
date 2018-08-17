@@ -6,9 +6,9 @@ import pl.edu.atena.entities.Policy;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class PolicyValidateMethod {
+public class PolicyValidateDataMethod implements PolicyValidateMethod{
 	
-	public void validatePolicy(Policy policy) {
+	public void validate(Policy policy) {
 		if(!Objects.isNull(policy)) {
 		
 			if(Objects.isNull(policy.getPolicyNumber())) {

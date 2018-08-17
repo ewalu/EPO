@@ -10,8 +10,8 @@ import java.util.Date;
 import org.junit.Test;
 
 import junit.framework.Assert;
-import pl.edu.atena.biz.polisa.PolicySetStatusMethod;
-import pl.edu.atena.biz.polisa.PolicyValidateMethod;
+import pl.edu.atena.biz.polisa.PolicyValidateStatusMethod;
+import pl.edu.atena.biz.polisa.PolicyValidateDataMethod;
 import pl.edu.atena.entities.Message;
 import pl.edu.atena.entities.Policy;
 import pl.edu.atena.entities.PolicyState;
@@ -25,9 +25,9 @@ private static String POLICY_NUMBER = "EWA123";
 	private static Date START_DATE = Date.from(Instant.now());
 	private static Date END_DATE = Date.from(Instant.now().plus(8, ChronoUnit.DAYS));
 
-	private PolicyValidateMethod policyValidateMethod  = new PolicyValidateMethod();
+	private PolicyValidateDataMethod policyValidateMethod  = new PolicyValidateDataMethod();
 	
-	private PolicySetStatusMethod policySetStatusMethod  = new PolicySetStatusMethod();
+	private PolicyValidateStatusMethod policySetStatusMethod  = new PolicyValidateStatusMethod();
 	
 	@Test
 	public void shouldChangeStatus() {
@@ -37,8 +37,8 @@ private static String POLICY_NUMBER = "EWA123";
 		policy.setInsuranceEndDate(START_DATE);
 		policy.setInsuranceStartDate(END_DATE);
 		policy.setStatus(PolicyState.ZATWIERDZONA);
-		policyValidateMethod.validatePolicy(policy);
-		policySetStatusMethod.setStatus(policy);
+		policyValidateMethod.validate(policy);
+		policySetStatusMethod.validate(policy);
 		Assert.assertFalse(policy.getPolicyMessages().isEmpty());
 		Assert.assertEquals(policy.getPolicyMessages().size(), 1);
 		Assert.assertEquals(policy.getStatus(), PolicyState.ZAWIESZONA);
