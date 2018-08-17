@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import pl.edu.atena.biz.polisa.PolicyValidateStatusMethod;
+import pl.edu.atena.biz.polisa.PolicyTarifficationMethod;
 import pl.edu.atena.biz.polisa.PolicyValidateDataMethod;
 import pl.edu.atena.entities.Person;
 import pl.edu.atena.entities.Policy;
@@ -20,14 +21,18 @@ public class PolicyDao {
 	private EntityManager em;
 	
 	@Inject
-	private PolicyValidateDataMethod policyValidateMethod;
+	private PolicyValidateDataMethod policyValidatDataeMethod;
 	
 	@Inject
-	private PolicyValidateStatusMethod policySetStatusMethod;
+	private PolicyValidateStatusMethod policyValidateStatusMethod;
+	
+	@Inject
+	private PolicyTarifficationMethod policyTarifficationMethod;
 	
 	public void create (Policy polisa) {
-		policyValidateMethod.validate(polisa);
-		policySetStatusMethod.validate(polisa);
+		policyValidatDataeMethod.validate(polisa);
+		policyValidateStatusMethod.validate(polisa);
+		policyTarifficationMethod.tarifficate(polisa);
 		em.persist(polisa);
 	}
 	

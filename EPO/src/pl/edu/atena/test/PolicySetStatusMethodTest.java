@@ -25,7 +25,7 @@ private static String POLICY_NUMBER = "EWA123";
 	private static Date START_DATE = Date.from(Instant.now());
 	private static Date END_DATE = Date.from(Instant.now().plus(8, ChronoUnit.DAYS));
 
-	private PolicyValidateDataMethod policyValidateMethod  = new PolicyValidateDataMethod();
+	private PolicyValidateDataMethod policyValidateDataMethod  = new PolicyValidateDataMethod();
 	
 	private PolicyValidateStatusMethod policySetStatusMethod  = new PolicyValidateStatusMethod();
 	
@@ -37,7 +37,7 @@ private static String POLICY_NUMBER = "EWA123";
 		policy.setInsuranceEndDate(START_DATE);
 		policy.setInsuranceStartDate(END_DATE);
 		policy.setStatus(PolicyState.ZATWIERDZONA);
-		policyValidateMethod.validate(policy);
+		policyValidateDataMethod.validate(policy);
 		policySetStatusMethod.validate(policy);
 		Assert.assertFalse(policy.getPolicyMessages().isEmpty());
 		Assert.assertEquals(policy.getPolicyMessages().size(), 1);

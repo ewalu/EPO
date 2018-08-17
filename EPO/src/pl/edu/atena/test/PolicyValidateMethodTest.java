@@ -24,7 +24,7 @@ public class PolicyValidateMethodTest {
 	private static Date START_DATE = Date.from(Instant.now());
 	private static Date END_DATE = Date.from(Instant.now().plus(8, ChronoUnit.DAYS));
 	
-	private PolicyValidateDataMethod policyValidateMethod = new PolicyValidateDataMethod();
+	private PolicyValidateDataMethod policyValidateDataMethod = new PolicyValidateDataMethod();
 
 	@Test
 	public void shouldValidateNoMessages() {
@@ -33,7 +33,7 @@ public class PolicyValidateMethodTest {
 		policy.setPremium(PREMIUM);
 		policy.setInsuranceEndDate(END_DATE);
 		policy.setInsuranceStartDate(START_DATE);
-		policyValidateMethod.validate(policy);
+		policyValidateDataMethod.validate(policy);
 		Assert.assertEquals(policy.getPolicyMessages().size(), 1);
 		Assert.assertTrue(policy.getPolicyMessages()
 				.stream().anyMatch(mess->mess.getCode().equals(Message.VALID_POLICY_DATA.getCode())));
@@ -42,13 +42,13 @@ public class PolicyValidateMethodTest {
 	@Test
 	public void shouldNotValidateNull() {
 		Policy policy = null;
-		policyValidateMethod.validate(policy);
+		policyValidateDataMethod.validate(policy);
 	}
 	
 	@Test
 	public void shouldValidate() {
 		Policy policy = new Policy();
-		policyValidateMethod.validate(policy);
+		policyValidateDataMethod.validate(policy);
 		Assert.assertFalse(policy.getPolicyMessages().isEmpty());
 		Assert.assertEquals(policy.getPolicyMessages().size(), 3);
 		Assert.assertTrue(policy.getPolicyMessages()
@@ -70,7 +70,7 @@ public class PolicyValidateMethodTest {
 		policy.setPremium(PREMIUM);
 		policy.setInsuranceEndDate(START_DATE);
 		policy.setInsuranceStartDate(END_DATE);
-		policyValidateMethod.validate(policy);
+		policyValidateDataMethod.validate(policy);
 		Assert.assertFalse(policy.getPolicyMessages().isEmpty());
 		Assert.assertEquals(policy.getPolicyMessages().size(), 1);
 		Assert.assertTrue(policy.getPolicyMessages()
