@@ -167,7 +167,6 @@ public class Policy {
 		this.getPolicyMessages().add(policyMessage);
 	}
 
-
 	/*public List<Risk> getRisks() {
 		return risks;
 	}

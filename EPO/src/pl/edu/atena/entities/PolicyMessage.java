@@ -71,5 +71,10 @@ public class PolicyMessage {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	@Override
+	public String toString() {
+		return this.type+" "+this.message;
+	}
 
 }

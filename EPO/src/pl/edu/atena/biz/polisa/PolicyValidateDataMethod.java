@@ -6,7 +6,10 @@ import pl.edu.atena.entities.Policy;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import org.jboss.logging.Logger;
+
 public class PolicyValidateDataMethod implements PolicyValidateMethod{
+	
 	
 	public void validate(Policy policy) {
 		if(!Objects.isNull(policy)) {
@@ -38,5 +41,4 @@ public class PolicyValidateDataMethod implements PolicyValidateMethod{
 			policy.addMessageToPolicy(Message.INCORECT_PERIOD);
 		}
 	}
-
 }
