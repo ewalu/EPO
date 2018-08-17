@@ -54,7 +54,7 @@ public class Policy {
 	@OneToMany
 	private List<Risk> risks;*/
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "policy", cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, /*mappedBy = "policy",*/ cascade=CascadeType.ALL)
 	private List<PolicyMessage> policyMessages = new ArrayList<PolicyMessage>();
 	
 	@Temporal(TemporalType.TIMESTAMP)

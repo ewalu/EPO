@@ -21,10 +21,10 @@ public class PolicyMessage {
 	@GeneratedValue
 	private Long id;
 	
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name = "POL_ID", foreignKey = @ForeignKey(name = "FK_MESSAGE_TO_POLICY"), insertable = true)
 	
-	private Policy policy;
+	private Policy policy;*/
 	
 	private Integer code;
 	
@@ -40,14 +40,14 @@ public class PolicyMessage {
 		this.id = id;
 	}
 
-	public Policy getPolicy() {
+	/*public Policy getPolicy() {
 		return policy;
 	}
 
 	public void setPolicy(Policy policy) {
 		this.policy = policy;
 	}
-
+*/
 	public Integer getCode() {
 		return code;
 	}
