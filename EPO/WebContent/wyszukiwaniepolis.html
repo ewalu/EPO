@@ -61,6 +61,7 @@
 							<th>Status</th>
 							<th>Okres ochrony od</th>
 							<th>Okres ochrony do</th>
+							<th>Ubezpieczony</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -72,6 +73,7 @@
 							<td>{{polisa.status}}</td>
 							<td>{{polisa.insuranceStartDate}}</td>
 							<td>{{polisa.insuranceEndDate}}</td>
+							<td>{{polisa.insured.firstName}} {{polisa.insured.lastName}} {{polisa.insured.pesel}}</td>
 						</tr>
 					</tbody>
 				</table>
