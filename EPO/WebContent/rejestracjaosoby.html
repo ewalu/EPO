@@ -30,14 +30,19 @@
                         ng-model="modelosoby.pesel">
                 </div>
             </div>
+
+            <div class="field is-small">
+                <label class="label">Data urodzenia</label>
+                <div class="control">
+                    <input class="input" type="date" placeholder="yyyy-MM-DD" date-format = "yyyy-MM-dd"
+                        ng-model="modelosoby.birthDate">
+                </div>
+            </div>
         </form>
     </div>
     <div class="field is-grouped is-grouped-centered">
             <div class="control">
                 <button class="button is-link" ng-click="zapiszOsobePost()">Zapisz Osobę</button>
-            </div>
-            <div class="control">
-                <button class="button is-text">Cancel</button>
             </div>
         </div>
 

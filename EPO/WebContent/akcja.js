@@ -32,7 +32,8 @@ app.controller('mojCtrl', function($scope, $http){
         id : null,
         firstName : null,
         lastName : null,
-        pesel : null
+        pesel : null,
+        birthDate : null
     }
 
     scope.osoby = [];
