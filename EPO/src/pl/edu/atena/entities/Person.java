@@ -31,6 +31,7 @@ public class Person {
 	private String nip;
 	private String regon;
 	
+	@Temporal(TemporalType.DATE)
 	private Date birthDate;
 	
 	@ManyToMany
