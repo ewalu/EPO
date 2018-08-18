@@ -3,6 +3,7 @@ package pl.edu.atena.rest;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -87,6 +88,16 @@ public class PolicyService {
 				List<Policy> polisy = polisaDao.select();
 				Response.status(200).entity(polisy).build();
 				return polisy;
+	}
+	
+	@GET
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/find/getpolicies/{policyNumber}")
+	public List<Policy> selectByNumber(@PathParam("policyNumber") String policyNumber) {
+				List<Policy> policy = polisaDao.getByNumber(policyNumber);
+				Response.status(200).entity(policy).build();
+				return policy;
 	}
 
 

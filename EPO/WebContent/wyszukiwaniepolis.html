@@ -12,13 +12,13 @@
 					<label class="label">Numer polisy</label>
 					<div class="control">
 						<input class="input" type="search" placeholder="Numer polisy"
-							ng-model="modelpolisy.numerPolisy">
+							ng-model="modelpolisy.policyNumber">
 					</div>
 				</div>
 				<div class="field is-small">
 					<label class="label">Status</label>
 					<div class="select is-fullwidth">
-						<select name="status" ng-model="modelpolisy.statusPolisy"
+						<select name="status" ng-model="modelpolisy.status"
 							ng-options="option as option for option in statusy">
 						</select>
 					</div>
@@ -39,6 +39,9 @@
 		<div class="field is-grouped is-grouped-centered">
 			<div class="control">
 				<button class="button is-link" ng-click="wyszukajPolisy()">Wyszukaj polisy</button>
+			</div>
+			<div class="control">
+				<button class="button is-link" ng-click="wyszukajPolisyNumer()">Wyszukaj polisy po Numerze</button>
 			</div>
 			<div class="control">
 				<button class="button is-text">Cancel</button>

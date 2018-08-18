@@ -54,15 +54,15 @@ public class PolicyDao {
 		}
 	}
 	
-	public Policy szukajPoNumerze (String numer) {
+	public List<Policy> getByNumber (String number) {
 		Query query = em.createQuery("select p from Policy p "
 				//+"join fetch p.agenci "
-				+ "where p.numerPolisy = :numerPolisy");
-		query.setParameter("numerPolisy", numer);
-		return (Policy) query.getSingleResult();
+				+ "where p.policyNumber = :policyNumber");
+		query.setParameter("policyNumber", number);
+		return query.getResultList();
 	}
 	
-	public List<Policy> szukajPoStatusie (PolicyState status) {
+	public List<Policy> getByState (PolicyState status) {
 		Query query = em.createQuery("select p from Policy p where p.status = :statusPolisy");
 		query.setParameter("statusPolisy", status);
 		return (List<Policy>) query.getResultList();

@@ -123,6 +123,21 @@ app.controller('mojCtrl', function($scope, $http){
     );
     }
 
+    scope.wyszukajPolisyNumer = () => {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8080/EPO-0.0.1-SNAPSHOT/api/polisa/find/getpolicies/'+scope.modelpolisy.policyNumber,
+            headers: { 'Content-Type': 'application/json ' }
+        }).
+            then((response) => {
+                scope.polisy = response.data;
+                console.log('ewa666'+response);
+            }, (response) => {
+                alert('Błąd podczas próby odczytu danych: ' + response.data);
+                console.log('ewa666'+response);
+});
+    }
+
     scope.wyszukajPolisy = () => {
         $http({
             method: 'GET',
