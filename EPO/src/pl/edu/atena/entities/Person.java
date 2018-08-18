@@ -133,5 +133,9 @@ public class Person {
 	public void setWr(Date wr) {
 		this.wr = wr;
 	}
+	
+	public long getAge() {
+		return Date.from(Instant.now()).getYear()- this.birthDate.getYear();
+	}
 
 }
