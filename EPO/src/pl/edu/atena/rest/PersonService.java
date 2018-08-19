@@ -13,6 +13,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import pl.edu.atena.dao.PolicyDao;
 import pl.edu.atena.dao.PersonDao;
 import pl.edu.atena.entities.Policy;

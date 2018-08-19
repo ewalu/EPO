@@ -15,11 +15,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 @Entity
 
 @Table(name = "EPO_PERSON",
 schema = "public"
 )
+
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Person {
 	@Id
 	@GeneratedValue
@@ -134,17 +138,17 @@ public class Person {
 		this.wr = wr;
 	}
 	
-	public long getAge() {
+	public long calculatePersonAge() {
 		return Date.from(Instant.now()).getYear()- this.birthDate.getYear();
 	}
 	
-	public double getPersonFactor() {
+	public double calculatePersonFactor() {
 		
-		if(this.getAge() < 30) {
+		if(this.calculatePersonAge() < 30) {
 			return 1.9;
 		}
 		
-		if(this.getAge() > 50) {
+		if(this.calculatePersonAge() > 50) {
 			return 1.1;
 		}
 		

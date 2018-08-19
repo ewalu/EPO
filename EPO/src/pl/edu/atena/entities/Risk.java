@@ -39,14 +39,14 @@ public class Risk {
 	@ManyToOne
 	private Policy polisa;
 	
-	@OneToOne
+	/*@OneToOne
 	private Person insured;
 	
 	@OneToOne
 	private Person insurer;
 	
 	@OneToOne
-	private Object object;
+	private Object object;*/
 
 	public Long getId() {
 		return id;
@@ -104,7 +104,7 @@ public class Risk {
 		this.vt = vt;
 	}
 
-	public Person getInsured() {
+	/*public Person getInsured() {
 		return insured;
 	}
 
@@ -118,6 +118,6 @@ public class Risk {
 
 	public void setObject(Object object) {
 		this.object = object;
-	}
+	}*/
 
 }
