@@ -39,15 +39,7 @@ public class PolicyMessage {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	/*public Policy getPolicy() {
-		return policy;
-	}
-
-	public void setPolicy(Policy policy) {
-		this.policy = policy;
-	}
-*/
+	
 	public Integer getCode() {
 		return code;
 	}

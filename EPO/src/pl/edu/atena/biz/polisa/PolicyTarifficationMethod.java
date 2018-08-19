@@ -16,6 +16,7 @@ public class PolicyTarifficationMethod {
 		if(!Objects.isNull(policy.getInsured()) && policy.getStatus().equals(PolicyState.ZATWIERDZONA) && !Objects.isNull(policy.getInsured().getBirthDate())) {
 			BigDecimal premium = policy.getPremium();
 			policy.setPremium(premium.multiply(BigDecimal.valueOf(policy.getInsured().calculatePersonFactor())));
+			log.info(policy.getPolicyNumber()+": "+premium+"->"+policy.getPremium().toString());
 		}
 	}
 

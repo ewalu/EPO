@@ -25,12 +25,13 @@ public class Risk {
 	@GeneratedValue
 	private Long id;
 	private String nazwa;
-	private BigDecimal premium;
+	private RiskSymbol riskSymbol;
+	//private BigDecimal premium;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date wr = Date.from(Instant.now());
 	
-	@Temporal(TemporalType.DATE)
+	/*@Temporal(TemporalType.DATE)
 	private Date vf;
 	
 	@Temporal(TemporalType.DATE)
@@ -39,7 +40,7 @@ public class Risk {
 	@ManyToOne
 	private Policy polisa;
 	
-	/*@OneToOne
+	@OneToOne
 	private Person insured;
 	
 	@OneToOne
@@ -64,7 +65,7 @@ public class Risk {
 		this.nazwa = nazwa;
 	}
 
-	public Policy getPolisa() {
+	/*public Policy getPolisa() {
 		return polisa;
 	}
 
@@ -78,7 +79,7 @@ public class Risk {
 
 	public void setPremium(BigDecimal premium) {
 		this.premium = premium;
-	}
+	}*/
 
 	public Date getWr() {
 		return wr;
@@ -88,7 +89,15 @@ public class Risk {
 		this.wr = wr;
 	}
 
-	public Date getVf() {
+	public RiskSymbol getRiskSymbol() {
+		return riskSymbol;
+	}
+
+	public void setRiskSymbol(RiskSymbol riskSymbol) {
+		this.riskSymbol = riskSymbol;
+	}
+
+	/*public Date getVf() {
 		return vf;
 	}
 
@@ -104,7 +113,7 @@ public class Risk {
 		this.vt = vt;
 	}
 
-	/*public Person getInsured() {
+	public Person getInsured() {
 		return insured;
 	}
 
