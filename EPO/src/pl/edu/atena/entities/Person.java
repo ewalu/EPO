@@ -137,5 +137,19 @@ public class Person {
 	public long getAge() {
 		return Date.from(Instant.now()).getYear()- this.birthDate.getYear();
 	}
+	
+	public double getPersonFactor() {
+		
+		if(this.getAge() < 30) {
+			return 1.9;
+		}
+		
+		if(this.getAge() > 50) {
+			return 1.1;
+		}
+		
+		return 1.5;
+		
+	}
 
 }

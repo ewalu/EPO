@@ -13,11 +13,9 @@ public class PolicyTarifficationMethod {
 	private Logger log = Logger.getLogger(PolicyTarifficationMethod.class);
 	
 	public void tarifficate(Policy policy) {
-		if(!Objects.isNull(policy.getInsured()) && policy.getStatus().equals(PolicyState.ZATWIERDZONA)) {
+		if(!Objects.isNull(policy.getInsured()) && policy.getStatus().equals(PolicyState.ZATWIERDZONA) && !Objects.isNull(policy.getInsured().getBirthDate())) {
 			BigDecimal premium = policy.getPremium();
-			policy.setPremium(premium.multiply(BigDecimal.valueOf(1.5)));
-			
-			log.info(policy.getPolicyNumber()+": "+premium+"->"+policy.getPremium().toString());
+			policy.setPremium(premium.multiply(BigDecimal.valueOf(policy.getInsured().getPersonFactor())));
 		}
 	}
 

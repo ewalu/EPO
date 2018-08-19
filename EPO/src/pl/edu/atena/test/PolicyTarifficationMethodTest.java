@@ -53,7 +53,7 @@ public class PolicyTarifficationMethodTest {
 	}
 	
 	@Test
-	public void shouldTarrificate() {
+	public void shouldNoTarrificateNoBirthdayDate() {
 		Policy policy = new Policy();
 		Person person = new Person();
 		person.setFirstName(NAME);
@@ -67,7 +67,35 @@ public class PolicyTarifficationMethodTest {
 		policyValidateStatusMethod.validate(policy);
 		policyTarifficationMethod.tarifficate(policy);
 		
-		Assert.assertEquals(policy.getPremium(), PREMIUM.multiply(BigDecimal.valueOf(1.5)));
+		Assert.assertEquals(policy.getPremium(), PREMIUM);
+	}
+	
+	@Test
+	public void shouldTarrificate() {
+		Policy policy = new Policy();
+		Person person = new Person();
+		person.setFirstName(NAME);
+		person.setBirthDate(Date.from(Instant.now()));
+		policy.setPolicyNumber(POLICY_NUMBER);
+		policy.setPremium(PREMIUM);
+		policy.setInsuranceEndDate(END_DATE);
+		policy.setInsuranceStartDate(START_DATE);
+		policy.setInsured(person);
+		
+		policyValidateDataMethod.validate(policy);
+		policyValidateStatusMethod.validate(policy);
+		policyTarifficationMethod.tarifficate(policy);
+		
+		Assert.assertEquals(policy.getPremium(), PREMIUM.multiply(BigDecimal.valueOf(1.9)));
+		
+		person.setBirthDate(Date.from(Instant.now().minus(60*365, ChronoUnit.DAYS)));
+		policy.setPremium(PREMIUM);
+		
+		policyValidateDataMethod.validate(policy);
+		policyValidateStatusMethod.validate(policy);
+		policyTarifficationMethod.tarifficate(policy);
+		
+		Assert.assertEquals(policy.getPremium(), PREMIUM.multiply(BigDecimal.valueOf(1.1)));
 	}
 
 }
